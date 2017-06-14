@@ -1,0 +1,4 @@
+---
+# Piwik
+piwik_db: piwik
+piwik_path: /var/www/

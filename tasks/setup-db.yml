@@ -1,0 +1,18 @@
+---
+- name: make piwik db
+  mysql_db: name={{ piwik_db }}
+            login_host={{ mysql_host }}
+            login_user={{ mysql_root_user }}
+            login_password={{ mysql_root_password }}
+            encoding=utf8
+            state=present
+
+
+- name: make piwik db user
+  mysql_user: name={{ piwik_db_user }}
+              password={{ piwik_db_user_password }}
+              priv={{ piwik_db }}.*:ALL
+              login_host={{ mysql_host }}
+              login_user={{ mysql_root_user }}
+              login_password={{ mysql_root_password }}
+              state=present

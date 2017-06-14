@@ -1,0 +1,24 @@
+---
+- name: create piwik download location
+  file: path={{ piwik_path }}
+        state=directory
+
+
+- name: fetch latest piwik release
+  get_url: url=https://builds.piwik.org/piwik.zip
+           dest={{ piwik_path }}piwik.zip
+
+
+- name: extract archive
+  unarchive: src={{ piwik_path }}piwik.zip
+             dest={{ piwik_path }}
+
+
+- name: remove piwik archive
+  file: path={{ piwik_path }}piwik.zip
+        state=absent
+
+
+- name: remove how to install document
+  file: path="{{ piwik_path }}How\ to\ install\ Piwik.html"
+        state=absent

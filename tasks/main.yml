@@ -1,0 +1,12 @@
+---
+- include: setup-db.yml
+  tags: piwik_setup_db
+
+- include: download.yml
+  tags: piwik_download
+
+- include: configure.yml
+  tags: piwik_configure
+
+- include: permissions.yml
+  tags: piwik_permissions

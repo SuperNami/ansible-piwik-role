@@ -1,0 +1,8 @@
+---
+- name: set permissions piwik path
+  file: path={{ piwik_path }}piwik
+        state=directory
+        recurse=yes
+        owner=root
+        group=root
+        mode=0755

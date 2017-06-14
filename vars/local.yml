@@ -1,0 +1,9 @@
+---
+mysql_host: localhost
+
+nginx_sites_available: /etc/nginx/sites-available
+nginx_sites_enabled: /etc/nginx/sites-enabled
+nginx_logs_path: /var/logs/nginx
+
+serverblock_access_option: main
+serverblock_error_option: info

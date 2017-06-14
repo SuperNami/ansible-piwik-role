@@ -1,0 +1,17 @@
+---
+- name: copy piwik nginx serverblock
+  template: src=piwik.conf.j2
+            dest={{ nginx_sites_available }}piwik.conf
+            owner=root
+            group=root
+            mode=0640
+  notify: restart nginx
+
+
+- name: make piwik serverblock symbolic link
+  file: src={{ nginx_sites_available }}piwik.conf
+        dest={{ nginx_sites_enabled }}piwik.conf
+        owner=root
+        group=root
+        state=link
+  notify: restart nginx

@@ -1,0 +1,12 @@
+---
+- name: piwik
+  hosts: all
+  user: root
+  become: true
+  roles:
+  - piwik
+  vars_files:
+  - vars/local.yml
+  - vars/piwik.yml
+  - vars/secrets.yml
+  - vars/vault.yml
